@@ -1,14 +1,37 @@
 function getNeighbors(row, col, graph) {
+  let neighbors = [];
 
   // Check top
+  if(row - 1 >= 0 && 
+    graph[row - 1][col] === 1){
+    neighbors.push([row - 1, col])
+  }
 
   // Check bottom
+  if(row + 1 < graph.length && 
+    graph[row + 1][col] === 1)
+    {
+      neighbors.push([row + 1, col])
+    }
+  
 
   // Check left
+  if(col > 0 && 
+    graph[row][col - 1] === 1)
+    {
+      neighbors.push([row + 1, col])
+    }
 
   // Check right
 
+  if(col < graph[row].length && 
+    graph[row][col + 1] === 1)
+    {
+      neighbors.push([row, col + 1])
+    }
+
   // Return neighbors
+  return neighbors;
 
   // Your code here 
 }
